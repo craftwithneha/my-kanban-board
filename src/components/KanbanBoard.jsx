@@ -97,32 +97,33 @@ export default function KanbanBoard() {
   };
 
   return (
-    <div className="py-4 bg-gray-100 min-h-screen">
-      <main className="flex-1 px-4 sm:px-6 md:px-10 overflow-x-auto">
-        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-          Kanban Board <Star className="w-5 h-5 text-gray-600" />
-        </h1>
+   <div className="py-4 bg-gray-100 min-h-screen overflow-hidden">
+  <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-10 overflow-hidden">
+    <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+      Kanban Board <Star className="w-5 h-5 text-gray-600" />
+    </h1>
 
-        <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-          <div className="flex gap-4 sm:gap-6 md:gap-8 pb-8 overflow-x-auto">
-            {Object.keys(tasks).map((column) => (
-              <DroppableColumn key={column} id={column}>
-                <SortableContext
-                  items={tasks[column].map((task) => task.id)}
-                  strategy={verticalListSortingStrategy}
-                >
-                  <Column
-                    title={column}
-                    tasks={tasks[column]}
-                    onAdd={(newTask) => handleAddTask(column, newTask)}
-                    onDelete={handleDeleteTask}
-                  />
-                </SortableContext>
-              </DroppableColumn>
-            ))}
-          </div>
-        </DndContext>
-      </main>
-    </div>
+    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <div className="flex gap-2 sm:gap-4 md:gap-6 overflow-x-auto pb-2 scrollbar-hide">
+        {Object.keys(tasks).map((column) => (
+          <DroppableColumn key={column} id={column}>
+            <SortableContext
+              items={tasks[column].map((task) => task.id)}
+              strategy={verticalListSortingStrategy}
+            >
+              <Column
+                title={column}
+                tasks={tasks[column]}
+                onAdd={(newTask) => handleAddTask(column, newTask)}
+                onDelete={handleDeleteTask}
+              />
+            </SortableContext>
+          </DroppableColumn>
+        ))}
+      </div>
+    </DndContext>
+  </main>
+</div>
+
   );
 }

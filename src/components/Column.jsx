@@ -44,7 +44,8 @@ export default function Column({ title, tasks, onAdd, onDelete }) {
 
 
   return (
-    <div className="bg-white w-80 p-4 rounded-lg shadow-sm flex-shrink-0">
+        <div className="bg-white w-full max-w-sm p-3 rounded-lg shadow-sm flex-shrink-0">
+
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-semibold text-lg">{title}</h2>
         <button onClick={() => setAdding(!adding)}>
