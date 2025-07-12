@@ -12,11 +12,11 @@ import {
 } from '@dnd-kit/sortable';
 import { Star } from 'lucide-react';
 
-// 👇 DroppableColumn is now written inside this file
+// 👇 DroppableColumn defined here for simplicity
 function DroppableColumn({ id, children }) {
   const { setNodeRef } = useDroppable({ id });
   return (
-    <div ref={setNodeRef} className="min-w-[300px] h-full">
+    <div ref={setNodeRef} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] h-full">
       {children}
     </div>
   );
@@ -98,13 +98,13 @@ export default function KanbanBoard() {
 
   return (
     <div className="py-4 bg-gray-100 min-h-screen">
-      <main className="flex-1 overflow-x-auto p-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 p-4 flex items-center gap-4">
-          Kanban Board <Star className="w-4 h-4 text-gray-600" />
+      <main className="flex-1 px-4 sm:px-6 md:px-10 overflow-x-auto">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+          Kanban Board <Star className="w-5 h-5 text-gray-600" />
         </h1>
 
         <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-          <div className="flex gap-6 pb-4">
+          <div className="flex gap-4 sm:gap-6 md:gap-8 pb-8 overflow-x-auto">
             {Object.keys(tasks).map((column) => (
               <DroppableColumn key={column} id={column}>
                 <SortableContext
