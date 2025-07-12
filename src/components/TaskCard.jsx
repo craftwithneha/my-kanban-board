@@ -15,13 +15,14 @@ export default function TaskCard({ task, onDelete }) {
   };
 
   return (
-    <div
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      style={style}
-      className="bg-white border rounded-lg p-4 shadow hover:shadow-md transition space-y-2 cursor-grab"
-    >
+  <div
+  ref={setNodeRef}
+  {...attributes}
+  {...listeners}
+  style={style}
+  className="bg-white border rounded-lg p-3 shadow-sm hover:shadow-md transition space-y-2 cursor-grab w-full max-w-[320px] mx-auto"
+>
+
       <div className="flex justify-between items-start">
         <div>
           <h3 className="font-semibold text-sm">{task.title}</h3>

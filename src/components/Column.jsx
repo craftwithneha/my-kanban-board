@@ -44,7 +44,8 @@ export default function Column({ title, tasks, onAdd, onDelete }) {
 
 
   return (
-        <div className="bg-white w-full max-w-sm p-2 rounded-lg shadow-sm flex-shrink-0">
+        <div className="bg-white w-full max-w-[350px] p-3 rounded-lg shadow-sm flex-shrink-0">
+
 
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-semibold text-lg">{title}</h2>
@@ -101,11 +102,12 @@ export default function Column({ title, tasks, onAdd, onDelete }) {
   </div>
 )}
 <SortableContext items={tasks.map((task) => task.id)} strategy={verticalListSortingStrategy}>
-  <div className="space-y-4">
-    {tasks.map((task) => (
-      <TaskCard key={task.id} task={task} onDelete={onDelete} />
-    ))}
-  </div>
+  <div className="space-y-3">
+  {tasks.map((task) => (
+    <TaskCard key={task.id} task={task} onDelete={onDelete} />
+  ))}
+</div>
+
 </SortableContext>
 
 
