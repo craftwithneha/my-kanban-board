@@ -44,31 +44,31 @@ export default function Column({ title, tasks, onAdd, onDelete }) {
 
 
   return (
-        <div className="bg-white w-full max-w-sm p-3 rounded-lg shadow-sm flex-shrink-0">
+        <div className="bg-white w-full max-w-sm p-2 rounded-lg shadow-sm flex-shrink-0">
 
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-semibold text-lg">{title}</h2>
         <button onClick={() => setAdding(!adding)}>
-          <Plus size={18} className="text-blue-500" />
+          <Plus size={18} className="text-blue-400" />
         </button>
       </div>
 
      {adding && (
-  <div className="space-y-2 mb-4 border p-2 rounded bg-gray-50">
+  <div className="space-y-2 mb-4  p-2 rounded bg-gray-100">
     <input
-      className="w-full p-1 text-sm border rounded"
+      className="w-full p-1 text-sm  rounded"
       placeholder="Project Name"
       value={form.title}
       onChange={(e) => setForm({ ...form, title: e.target.value })}
     />
     <textarea
-      className="w-full p-1 text-sm border rounded"
+      className="w-full p-1 text-sm  rounded"
       placeholder="Description"
       value={form.description}
       onChange={(e) => setForm({ ...form, description: e.target.value })}
     />
     <input
-      className="w-full p-1 text-sm border rounded"
+      className="w-full p-1 text-sm  rounded"
       placeholder="LinkedIn URL"
       value={form.owner.linkedin}
       onChange={(e) =>
@@ -76,7 +76,7 @@ export default function Column({ title, tasks, onAdd, onDelete }) {
       }
     />
     <input
-      className="w-full p-1 text-sm border rounded"
+      className="w-full p-1 text-sm rounded"
       placeholder="GitHub URL"
       value={form.owner.github}
       onChange={(e) =>
